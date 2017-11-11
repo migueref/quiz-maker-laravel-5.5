@@ -30,14 +30,12 @@
 
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    <ul class="navbar-nav mr-auto">
-
-
                      <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          Completar encuesta como director
                        </a>
                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                         <a class="dropdown-item" href="#">Diagnóstico general</a>
+                         <a class="dropdown-item" href="{{url('/exams')}}">Diagnóstico general</a>
                          <a class="dropdown-item" href="#">Docente</a>
                        </div>
                      </li>
@@ -50,16 +48,7 @@
            </nav>
         </header>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+
 
 
         </div>
@@ -72,7 +61,7 @@
                            </div>
                            
                            <div class="card-footer text-muted">
-                                <a href="#" class="btn btn-primary">Completar encuesta como director</a>
+                                <a href="{{url('/exams')}}" class="btn btn-primary">Completar encuesta como director</a>
                                 <a href="#" class="btn btn-primary">Completar encuesta como docente</a>
                            </div>
                       </article>
