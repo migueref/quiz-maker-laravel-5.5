@@ -14,8 +14,13 @@ class QuestionOptionTable extends Migration
     public function up()
     {
         Schema::create('question_option', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+             $table->increments('id');
+             $table->integer('question_id')->unsigned();
+             $table->integer('option_id')->unsigned();
+             $table->timestamps();
+             $table->softDeletes();
+             $table->foreign('question_id')->references('id')->on('questions');
+             $table->foreign('option_id')->references('id')->on('options');
         });
     }
 

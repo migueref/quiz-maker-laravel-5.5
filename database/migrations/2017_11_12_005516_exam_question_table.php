@@ -14,8 +14,13 @@ class ExamQuestionTable extends Migration
     public function up()
     {
         Schema::create('exam_question', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+             $table->increments('id');
+             $table->integer('exam_id')->unsigned();
+             $table->integer('question_id')->unsigned();
+             $table->timestamps();
+             $table->softDeletes();
+             $table->foreign('exam_id')->references('id')->on('exams');
+             $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 

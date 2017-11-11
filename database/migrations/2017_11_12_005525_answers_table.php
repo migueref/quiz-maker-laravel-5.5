@@ -14,8 +14,16 @@ class AnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+             $table->increments('id');
+             $table->integer('question_id')->unsigned();
+             $table->integer('option_id')->unsigned();
+             $table->integer('form_id')->unsigned();             
+             $table->string('description');
+             $table->timestamps();
+             $table->softDeletes();
+             $table->foreign('question_id')->references('id')->on('questions');
+             $table->foreign('option_id')->references('id')->on('options');
+             $table->foreign('form_id')->references('id')->on('options');
         });
     }
 

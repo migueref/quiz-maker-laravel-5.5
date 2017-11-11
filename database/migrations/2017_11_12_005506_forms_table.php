@@ -14,8 +14,13 @@ class FormsTable extends Migration
     public function up()
     {
         Schema::create('forms', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+             $table->increments('id');
+             $table->integer('applicant_id')->unsigned();
+             $table->integer('exam_id')->unsigned();
+             $table->timestamps();
+             $table->softDeletes();
+             $table->foreign('applicant_id')->references('id')->on('applicants');
+             $table->foreign('exam_id')->references('id')->on('exams');
         });
     }
 
