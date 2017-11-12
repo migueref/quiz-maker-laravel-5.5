@@ -10,7 +10,7 @@
 
               <form action="/forms" method="POST">
                    <input type="hidden" name="_method" value="POST">
-                   <input type="hidden" name="_exam_type" value="director">
+                   <input type="hidden" name="_exam_type" value="manager">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                    <div class="form-group">
                         <label for="exampleInputEmail1">Nombre de la escuela:</label>

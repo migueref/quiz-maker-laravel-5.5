@@ -39,12 +39,12 @@
                       Completar encuesta como director
                    </a>
                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="{{url('/exams')}}">Diagnóstico general</a>
-                      <a class="dropdown-item" href="#">Docente</a>
+                      <a class="dropdown-item" href="{{url('/forms')}}">Diagnóstico general</a>
+                      <a class="dropdown-item" href="{{url('/forms/create')}}">Docente</a>
                    </div>
                   </li>
                   <li class="nav-item">
-                   <a class="nav-link" href="#">Completar encuesta como docente</a>
+                   <a class="nav-link" href="{{url('/forms/create')}}">Completar encuesta como docente</a>
                   </li>
                </ul>
 
