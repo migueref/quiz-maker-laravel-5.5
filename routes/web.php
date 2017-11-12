@@ -14,13 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('answers', 'Answers\AnswersController');
-Route::resource('applicants', 'Applicants\ApplicantsController');
-Route::resource('exams', 'Exams\ExamsController');
-Route::resource('forms', 'Forms\FormsController');
-Route::resource('options', 'Options\OptionsController');
-Route::resource('questions', 'Questions\QuestionsController');
 
+Route::group(['middleware'=>'auth'],function(){
+     Route::resource('answers', 'Answers\AnswersController');
+     Route::resource('applicants', 'Applicants\ApplicantsController');
+     Route::resource('exams', 'Exams\ExamsController');
+     Route::resource('forms', 'Forms\FormsController');
+     Route::resource('options', 'Options\OptionsController');
+     Route::resource('questions', 'Questions\QuestionsController');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

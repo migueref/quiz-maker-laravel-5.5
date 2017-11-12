@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\Forms;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class FormsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __contruct() {
+
+    }
     public function index()
     {
-        //
+        return view('forms.index');
     }
 
     /**
@@ -24,7 +23,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.create');
     }
 
     /**
@@ -35,7 +34,9 @@ class FormsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+         
+
     }
 
     /**
