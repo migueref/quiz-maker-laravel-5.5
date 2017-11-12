@@ -26,7 +26,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        $questions = Question::get()->where('id', '==', 6);
+        $questions = Question::get()->where('id', '==', 7);
 
         return view('forms.create',['questions'=>$questions]);
     }
@@ -144,7 +144,7 @@ class FormsController extends Controller
           $form->applicant_id = Auth::id();
           $form->exam_id = 2;
           if($form->save()) {
-               $questions = Question::get()->where('id', '==', 6);
+               $questions = Question::get()->where('id', '==', 7);
                foreach ($questions as $question) {
                     $answer = new Answer;
                     $answer->option_id = $request->{"answer".$question->id};

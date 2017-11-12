@@ -18,15 +18,15 @@
                             <input type="hidden" name="question{{$question->id}}" value="{{$question->id}}">
                             <div class="form-group">
                                   <label for="exampleFormControlSelect1">Selecciona una respuesta</label>
-                                  <select class="form-control" name="answer{{$question->id}}">
-                                       @foreach($question->options as $option)
-                                          <option value="{!! $option->id !!}">{!! $option->name !!}</option>
-                                      @endforeach
-                                  </select>
-                            </div>
+                                  @foreach($question->options as $option)
 
-
-                             <small id="emailHelp" class="form-text text-muted">Elige una opción de la lista.</small>
+                                      <div class="form-control">
+                                           <div class="row">
+                                                <input type="checkbox" name="answer{{$question->id}}" value="{!! $option->id !!}" />{!! $option->name !!}
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{!! $option->description !!}</div>
+                                           </div>
+                                      </div>
+                                   @endforeach
                         </div>
                    @endforeach
                    <div class="row">

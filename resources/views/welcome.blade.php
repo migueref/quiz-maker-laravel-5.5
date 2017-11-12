@@ -55,7 +55,22 @@
                            <div class="card-header">
                              <h1 class="card-title">Cuestionario de Prácticas Pedagógicas para Docentes</h1>
                            </div>
+                           <div class="card-body text-left">
+                               <p> El presente cuestionario busca determinar el grado de aplicación de un conjunto de acciones con los estudiantes durante el último semestre o ciclo escolar. Estas acciones se demuestran a través de actividades que se ponen en marcha para lograr determinadas metas de aprendizaje. </p>
+                              <p>No es una evaluación de su desempeño, ni tampoco un test de inteligencia o de personalidad. Es solamente un diagnóstico de los tipos de acciones más comunes que se trabajan con los estudiantes. No existen respuestas correctas ni incorrectas. </p>
+                              <p>Este diagnóstico es confidencial. En ninguna parte aparecerán sus datos personales.  </p>
+                              <p>Si acepta participar, le invitamos a hacerlo con sinceridad, respondiendo todas las preguntas planteadas. </p>
+                              <p>Solamente le tomará unos minutos. </p>
+                              <p>Intrucciones</p>
+                              <ul>
+                                   <li>Son 10 preguntas.</li>
+                                   <li>La duración promedio es de 15 minutos.</li>
+                                   <li>En cada pregunta hay varios niveles que van desde 0 (NO LO HACE) hasta 4 (EXCELENTE). Para facilitar la selección del nivel, lea la descripción respectiva. Seleccione el nivel con una “X” o dando clic.  </li>
+                                   <li>Solamente debe marcar un nivel en cada una de las 10 preguntas.</li>
+                                   <li>Es necesario responder todas las preguntas.</li>
+                              </ul>
 
+                           </div>
                            <div class="card-footer text-muted">
                                 <a href="{{url('/forms')}}" class="btn btn-primary">Completar encuesta como director</a>
                                 <a href="{{url('/forms/create')}}" class="btn btn-primary">Completar encuesta como docente</a>
