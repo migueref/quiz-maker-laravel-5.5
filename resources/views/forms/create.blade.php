@@ -23,10 +23,16 @@
                         <small id="emailHelp" class="form-text text-muted">Escriba el tipo completo de su escuela.</small>
                    </div>
                    <div class="form-group">
+                        <label for="exampleInputEmail1">Cantidad de docentes:</label>
+                        <input type="number" class="form-control" name="teachers_qty"  placeholder="Escriba la cantidad de docentes">
+                        <small id="emailHelp" class="form-text text-muted">Solo se aceptan números.</small>
+                   </div>
+                   <div class="form-group">
                         <label for="exampleInputEmail1">Cantidad de estudiantes:</label>
                         <input type="number" class="form-control" name="student_qty"  placeholder="Escriba la cantidad de estudiantes">
                         <small id="emailHelp" class="form-text text-muted">Solo se aceptan números.</small>
                    </div>
+
                    <div class="form-group">
                         <label for="exampleInputEmail1">Ubicación:</label>
                         <select class="form-control" name="location">
