@@ -19,7 +19,7 @@ class FormsTable extends Migration
              $table->integer('exam_id')->unsigned();
              $table->timestamps();
              $table->softDeletes();
-             $table->foreign('applicant_id')->references('id')->on('applicants');
+             $table->foreign('applicant_id')->references('id')->on('users');
              $table->foreign('exam_id')->references('id')->on('exams');
         });
     }

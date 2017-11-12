@@ -53,7 +53,7 @@
      </header>
     <main>
          <br>
-         <div class="container card">
+         <div class="container">
 
               @yield('content')
          </div>
