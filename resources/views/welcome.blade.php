@@ -47,11 +47,7 @@
                  </div>
            </nav>
         </header>
-        <div class="flex-center position-ref full-height">
 
-
-
-        </div>
         <main>
              <section>
                   <div class="container">
@@ -59,7 +55,7 @@
                            <div class="card-header">
                              <h1 class="card-title">Cuestionario de Prácticas Pedagógicas para Docentes</h1>
                            </div>
-                           
+
                            <div class="card-footer text-muted">
                                 <a href="{{url('/exams')}}" class="btn btn-primary">Completar encuesta como director</a>
                                 <a href="#" class="btn btn-primary">Completar encuesta como docente</a>
