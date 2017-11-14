@@ -26,9 +26,10 @@ class FormsController extends Controller
      */
     public function create()
     {
-        $questions = Question::get()->where('id', '==', 7);
+      $questions = Question::get()->where('id', '==', 7);
+      $institutions = Form::whereNotNull('school')->get();
 
-        return view('forms.create',['questions'=>$questions]);
+        return view('forms.create',['questions'=>$questions, 'institutions'=>$institutions]);
     }
 
     /**
@@ -44,6 +45,7 @@ class FormsController extends Controller
          if($request->_exam_type == 'manager') {
               $form->applicant_id = Auth::id();
               $form->exam_id = 1;
+              $form->school = $request->school_name;
               if($form->save()) {
                    $this->saveDirectorTextAnswers($request,$form->id);
                    $this->saveDirectorSelectAnswers($request,$form->id);
@@ -105,11 +107,8 @@ class FormsController extends Controller
         //
     }
     public function saveDirectorTextAnswers($request, $form_id) {
-         $answer = new Answer;
-         $answer->question_id = 1;
-         $answer->form_id = $form_id;
-         $answer->description = $request->school_name;
-         $answer->save();
+
+
          $answer = new Answer;
          $answer->question_id = 2;
          $answer->form_id = $form_id;
@@ -143,6 +142,7 @@ class FormsController extends Controller
           $form = new Form;
           $form->applicant_id = Auth::id();
           $form->exam_id = 2;
+          $form->school = $request->school_name;
           if($form->save()) {
                $questions = Question::get()->where('id', '==', 7);
                foreach ($questions as $question) {

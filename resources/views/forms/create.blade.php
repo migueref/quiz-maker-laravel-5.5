@@ -12,6 +12,12 @@
                    <input type="hidden" name="_method" value="POST">
                    <input type="hidden" name="_exam_type" value="teacher">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                   <label for="school_name">Nombre de la institución</label>
+                   <select class="form-control" id="school_name" name="school_name">
+                     @foreach($institutions as $institution)
+                       <option value="{{$institution->school}}">{{$institution->school}}</option>
+                     @endforeach
+                   </select>
                    @foreach($questions as $question)
                         <div class="form-group">
                             <label for="exampleInputEmail1">{{$question->name}}:</label>
