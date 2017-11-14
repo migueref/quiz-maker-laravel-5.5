@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Institutions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Institution;
+
 
 class InstitutionsController extends Controller
 {
@@ -24,7 +27,7 @@ class InstitutionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('institutions.create');
     }
 
     /**
@@ -35,7 +38,21 @@ class InstitutionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+         $institution = new Institution;
+         $institution->manager_id = Auth::id();
+         $institution->name = $request->school_name;
+         $institution->type = $request->school_type;
+         $institution->teachers_qty = $request->teachers_qty;
+         $institution->students_qty = $request->student_qty;
+         $institution->location = $request->location;
+         $institution->economic_condition = $request->economic_condition;
+         if($institution->save()) {
+
+              return redirect('/home');
+         } else {
+              return view('institutions.create');
+         }
     }
 
     /**

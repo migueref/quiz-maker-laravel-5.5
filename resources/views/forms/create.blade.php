@@ -8,14 +8,14 @@
             </div>
             <div class="card-body">
 
-              <form action="/forms" method="POST">
+              <form action="/forms/" method="POST">
                    <input type="hidden" name="_method" value="POST">
                    <input type="hidden" name="_exam_type" value="teacher">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                    <label for="school_name">Nombre de la institución</label>
-                   <select class="form-control" id="school_name" name="school_name">
+                   <select class="form-control" id="institution_id" name="institution_id">
                      @foreach($institutions as $institution)
-                       <option value="{{$institution->school}}">{{$institution->school}}</option>
+                       <option value="{{$institution->id}}">{{$institution->name}}</option>
                      @endforeach
                    </select>
                    @foreach($questions as $question)

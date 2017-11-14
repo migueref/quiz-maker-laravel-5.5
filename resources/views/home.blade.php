@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="card col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
 
@@ -25,13 +25,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($answers as $answer)
+                        @foreach($forms as $form)
+                         @if($answer->form->institution_id == $institution_id)
                           <tr>
                             <th scope="row">1</th>
+
                             <td>{{$answer->question->name}}</td>
-                            <td>{{$answer->form->user->name}}</td>
-                            <td>{{$answer->form->user->email}}</td>
-                            <td>{{$answer->form->exam->name}}</td>
+                            <td>{{$answer->option->name}}</td>
                             <td>
                               <!-- Button trigger modal -->
                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -60,6 +60,7 @@
                               </div>
                             </td>
                           </tr>
+                         @endif
                         @endforeach
                       </tbody>
                     </table>

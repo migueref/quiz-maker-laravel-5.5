@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
 
-              <form action="/forms" method="POST">
+              <form action="/institutions" method="POST">
                    <input type="hidden" name="_method" value="POST">
                    <input type="hidden" name="_exam_type" value="manager">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -35,20 +35,20 @@
                    <div class="form-group">
                         <label for="exampleInputEmail1">Ubicación:</label>
                         <select class="form-control" name="location">
-                             <option value="1">Urbana</option>
-                             <option value="2">Rural</option>
-                             <option value="3">Semiurbana</option>
+                             <option value="Urbana">Urbana</option>
+                             <option value="Rural">Rural</option>
+                             <option value="Semiurbana">Semiurbana</option>
                         </select>
                         <small id="emailHelp" class="form-text text-muted">Elige una opción de la lista.</small>
                    </div>
                    <div class="form-group">
                         <label for="exampleInputEmail1">Condición económica de los estudiantes:</label>
-                        <select class="form-control" name="student_condition">
-                             <option value="4">Muy baja</option>
-                             <option value="5">Baja</option>
-                             <option value="6">Aceptable</option>
-                             <option value="7">Buena</option>
-                             <option value="8">Excelente</option>
+                        <select class="form-control" name="economic_condition">
+                             <option value="Muy baja">Muy baja</option>
+                             <option value="Baja">Baja</option>
+                             <option value="Aceptable">Aceptable</option>
+                             <option value="Buena">Buena</option>
+                             <option value="Excelente">Excelente</option>
                         </select>
                         <small id="emailHelp" class="form-text text-muted">Elige una opción de la lista.</small>
                    </div>

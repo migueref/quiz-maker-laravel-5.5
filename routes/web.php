@@ -20,6 +20,7 @@ Route::group(['middleware'=>'auth'],function(){
      Route::resource('applicants', 'Applicants\ApplicantsController');
      Route::resource('exams', 'Exams\ExamsController');
      Route::resource('forms', 'Forms\FormsController');
+     Route::resource('institutions', 'Institutions\InstitutionsController');
      Route::resource('options', 'Options\OptionsController');
      Route::resource('questions', 'Questions\QuestionsController');
 });

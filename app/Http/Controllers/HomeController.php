@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Form;
 use App\Answer;
-use Illuminate\Support\Facades\Auth;
+use App\Institution;
 
 class HomeController extends Controller
 {
@@ -28,9 +30,11 @@ class HomeController extends Controller
     {
         $user_id= Auth::id();
 
-        $school = Form::where('applicant_id', $user_id)->pluck('school')->first();
+        $institution_id = Institution::where('manager_id', $user_id)->pluck('id')->first();
 
-        $answers = Answer::get();
-        return view('home',['answers'=>$answers]);
+        $forms = Form::where('institution_id',$institution_id)->get();
+
+
+        return view('home',['forms'=>$forms, 'institution_id'=>$institution_id]);
     }
 }

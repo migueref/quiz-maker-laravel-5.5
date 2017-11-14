@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Form;
 use App\Answer;
 use App\Question;
+use App\Institution;
 
 class FormsController extends Controller
 {
@@ -16,7 +17,7 @@ class FormsController extends Controller
     }
     public function index()
     {
-        return view('forms.index');
+
     }
 
     /**
@@ -26,10 +27,10 @@ class FormsController extends Controller
      */
     public function create()
     {
-      $questions = Question::get()->where('id', '==', 7);
-      $institutions = Form::whereNotNull('school')->get();
+         $questions = Question::get()->where('id', '==', 7);
+         $institutions = Institution::get();
 
-        return view('forms.create',['questions'=>$questions, 'institutions'=>$institutions]);
+         return view('forms.create',['questions'=>$questions, 'institutions'=>$institutions]);
     }
 
     /**
@@ -42,23 +43,10 @@ class FormsController extends Controller
     {
 
          $form = new Form;
-         if($request->_exam_type == 'manager') {
-              $form->applicant_id = Auth::id();
-              $form->exam_id = 1;
-              $form->school = $request->school_name;
-              if($form->save()) {
-                   $this->saveDirectorTextAnswers($request,$form->id);
-                   $this->saveDirectorSelectAnswers($request,$form->id);
-                   return redirect('/forms');
-              } else {
-                   return view('forms.index');
-              }
+         if($this->saveTeacherTest($request)) {
+              return redirect('/home');
          } else {
-             if($this->saveTeacherTest($request)) {
-                  return redirect('/forms');
-             } else {
-                  return view('forms.index');
-             }
+              return view('forms.create');
          }
 
     }
@@ -106,43 +94,14 @@ class FormsController extends Controller
     {
         //
     }
-    public function saveDirectorTextAnswers($request, $form_id) {
 
 
-         $answer = new Answer;
-         $answer->question_id = 2;
-         $answer->form_id = $form_id;
-         $answer->description = $request->school_type;
-         $answer->save();
-         $answer = new Answer;
-         $answer->question_id = 3;
-         $answer->form_id = $form_id;
-         $answer->description = $request->teachers_qty;
-         $answer->save();
-         $answer = new Answer;
-         $answer->question_id = 4;
-         $answer->form_id = $form_id;
-         $answer->description = $request->student_qty;
-         $answer->save();
-    }
-     public function saveDirectorSelectAnswers($request, $form_id) {
-         $answer = new Answer;
-         $answer->question_id = 5;
-         $answer->form_id = $form_id;
-         $answer->option_id = $request->location;
-         $answer->save();
-         $answer = new Answer;
-         $answer->question_id = 6;
-         $answer->form_id = $form_id;
-         $answer->option_id = $request->student_condition;
-         $answer->save();
-     }
      public function saveTeacherTest($request)
      {
           $form = new Form;
           $form->applicant_id = Auth::id();
           $form->exam_id = 2;
-          $form->school = $request->school_name;
+          $form->institution_id = $request->institution_id;
           if($form->save()) {
                $questions = Question::get()->where('id', '==', 7);
                foreach ($questions as $question) {

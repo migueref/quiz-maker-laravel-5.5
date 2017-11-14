@@ -10,9 +10,9 @@ class Form extends Model
   {
         return $this->belongsTo('App\Exam');
   }
-  public function answer()
+  public function answers()
  {
-     return $this->hasOne('App\Answer');
+     return $this->hasMany('App\Answer');
  }
  public function user()
   {
