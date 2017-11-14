@@ -29,7 +29,9 @@ class EditOptionIdToAnswers extends Migration
      */
     public function down()
     {
-         $table->string('option_id')->nullable(false)->change();
+         Schema::table('answers', function (Blueprint $table) {
+              $table->string('option_id')->nullable(false)->change();
+        });
 
     }
 }

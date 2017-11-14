@@ -25,6 +25,9 @@ class AddTeacherKeyToUsers extends Migration
      */
     public function down()
     {
-        $table->string('teacher_key')->nullable(false)->change();
+         Schema::table('users', function (Blueprint $table) {
+          $table->string('teacher_key')->nullable(false)->change();
+        });
+
     }
 }

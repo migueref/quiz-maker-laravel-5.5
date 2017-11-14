@@ -25,6 +25,9 @@ class EditDescriptionToAnswers extends Migration
      */
     public function down()
     {
-        $table->string('description')->nullable(false)->change();
+         Schema::table('answers', function (Blueprint $table) {
+          $table->string('description')->nullable(false)->change();
+        });
+
     }
 }
