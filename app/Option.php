@@ -10,4 +10,8 @@ class Option extends Model
     {
         return $this->belongsToMany('App\Question');
     }
+    public function answer()
+   {
+       return $this->hasOne('App\Answer');
+   }
 }

@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     public function question()
-   {
-       return $this->hasOne('App\Question');
-   }
+    {
+        return $this->belongsTo('App\Question');
+    }
    public function option()
    {
-        return $this->hasOne('App\Option');
+       return $this->belongsTo('App\Option');
    }
-    public function form()
+   public function form()
    {
-       return $this->hasOne('App\Form');
-    }
+       return $this->belongsTo('App\Form');
+   }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Form;
+use App\Answer;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -28,9 +29,8 @@ class HomeController extends Controller
         $user_id= Auth::id();
 
         $school = Form::where('applicant_id', $user_id)->pluck('school')->first();
-        $tests = Form::where('school', $school)->where('exam_id', 2)->get();
-        
 
-        return view('home');
+        $answers = Answer::get();
+        return view('home',['answers'=>$answers]);
     }
 }
