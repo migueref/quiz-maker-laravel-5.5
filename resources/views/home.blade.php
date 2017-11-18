@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="card col-md-12 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+
+      </div>
+        <div class="card col-xs-12 col-sm-12 col-md-10 col-lg-10 ">
+            <div class="panel panel-default">
+
+                <div class="panel-body" style="padding:25px;">
+                    <h3>Cantidad de registros en su institución: {{$forms_qty}}</h3>
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -17,56 +20,35 @@
                     <table class="table table-responsive">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Pregunta</th>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Email</th>
-                          <th scope="col">Examen</th>
+                            <th>Nombre</th>
+                            @foreach($questions as $question)
+                              <th scope="col">{{$question->name}}</th>
+                            @endforeach
                         </tr>
                       </thead>
                       <tbody>
                         @foreach($forms as $form)
-                         @if($answer->form->institution_id == $institution_id)
                           <tr>
-                            <th scope="row">1</th>
+                            <td>{{$form->user->name}}</td>
+                            @foreach ($form->answers as $answer)
 
-                            <td>{{$answer->question->name}}</td>
-                            <td>{{$answer->option->name}}</td>
-                            <td>
-                              <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Ver respuestas
-                              </button>
+                              @if($answer)
+                                <td>{{$answer->option->name}}</td>
+                              @endif
+                            @endforeach
 
-                              <!-- Modal -->
-                              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                      ...
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
                           </tr>
-                         @endif
                         @endforeach
+                          <tr>
+                            
+                          </tr>
                       </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+
+        </div>
     </div>
-</div>
 @endsection

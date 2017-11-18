@@ -53,10 +53,10 @@
      </header>
     <main>
          <br>
-         <div class="container">
+           @yield('content')
 
-              @yield('content')
-         </div>
+
+
     </main>
 
     <!-- Scripts -->
